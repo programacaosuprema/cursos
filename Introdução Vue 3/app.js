@@ -1,8 +1,8 @@
 const app = Vue.createApp({
     data(){
         return {
-            name: 'Pablo',
-            age: 22
+            name: 'pikachu',
+            image: './img/pikachu.jpg'
         }
     }
 })
