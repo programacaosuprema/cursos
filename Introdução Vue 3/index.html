@@ -8,11 +8,31 @@
 </head>
 <body>
     <div id="app">
-        
+        <div v-for="(pokemon, index) in pokemons" :key="pokemon.id">
+            <ul>
+                <li><img :src="pokemon.img" alt="pokemon.nome"></li>
+                <li>
+                    <h2>{{pokemon.nome}}</h2>
+                </li>
+                <li>
+                    <ul v-for="(vantagem, index) in tipos.find(tipo => tipo.id === pokemon.id).vantagens" :key="index">
+                        <li>{{vantagem}}</li>
+                    </ul>
+                </li>
+                <li>
+                    <ul v-for="(fraqueza, index) in tipos.find(tipo => tipo.id === pokemon.id).fraquezas" :key="index">
+                        <li>{{fraqueza}}</li>
+                    </ul>
+                </li>
+                <li>
+                    <p>{{tipos.find(tipo => tipo.id === pokemon.id).imunidades}}</p>
+                </li>
+            </ul>
+        </div>
     </div>
 
     <script src="app.js"></script>
-
+        
     <script>
         const mountedApp = app.mount("#app")
     </script>
